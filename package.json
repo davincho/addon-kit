@@ -21,7 +21,6 @@
     "*.d.ts"
   ],
   "scripts": {
-    "postinstall": "node scripts/welcome.js",
     "clean": "rimraf ./dist",
     "buildBabel": "concurrently \"yarn buildBabel:cjs\" \"yarn buildBabel:esm\"",
     "buildBabel:cjs": "babel ./src -d ./dist/cjs --extensions \".js,.jsx,.ts,.tsx\"",
@@ -32,7 +31,7 @@
     "build:watch": "concurrently \"yarn buildBabel:esm -- --watch\" \"yarn buildTsc -- --watch\"",
     "test": "echo \"Error: no test specified\" && exit 1",
     "storybook": "start-storybook -p 6006",
-    "start": "concurrently \"yarn build:watch\" \"yarn storybook -- --no-manager-cache --quiet\"",
+    "start": "concurrently \"yarn build:watch\" \"yarn storybook -- --no-manager-cache\"",
     "build-storybook": "build-storybook",
     "prerelease": "zx scripts/prepublish-checks.mjs",
     "release": "yarn build && auto shipit",
